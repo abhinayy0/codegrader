@@ -1,0 +1,4 @@
+flask
+FLASK-SQLAlchemy
+psycopg2
+pytest
