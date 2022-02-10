@@ -14,6 +14,13 @@ def recreate_db():
     db.create_all()
     db.session.commit()
 
+
+@cli.command()
+def seed_db():
+    db.session.add(User(useername="a1", email="a1@gmail.com"))
+    db.session.add(User(useername="a2", email="a2@gmail.com"))
+    db.session.commit()
+
 @cli.command()
 def test():
     retcode = pytest.main(["-x","project/tests", "-v", "-s","--capture","no"])
