@@ -1,7 +1,9 @@
 from project.tests.base import client
 from project import db
 from project.api.models import User
+from sqlalchemy import exc
 import json
+
 
 def test_users(client):
     """Start with a blank database."""

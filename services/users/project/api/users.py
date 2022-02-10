@@ -33,3 +33,14 @@ def add_user():
     except exc.IntegrityError as e:
         db.session.rollback()
         return response_object, 400
+
+@users_blueprint.route('/users/<user_id>', methods=["GET"])
+def get_single_user(user_id):
+
+    user = User.query.filter_by(id=user_id).first()
+    response_object = {
+        "status":"success",
+        "data":{
+            "id":user.id
+        }
+    }
